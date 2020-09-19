@@ -1,0 +1,37 @@
+.options {
+    position: fixed;
+    bottom: 10vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.options .MuiIconButton-root {
+    background-color: aliceblue;
+    box-shadow: 0px 5px 40px 0px rgba(0,0,0,0.5);
+}
+
+.options__replay {
+    padding: 1.12vw !important;
+    color: #f5b758 !important;
+}
+
+.options__close {
+    padding: 1.12vw !important;
+    color: #ec5e6f !important;
+}
+
+.options__star {
+    padding: 1.12vw !important;
+    color: #62b4f9 !important;
+}
+
+.options__save {
+    padding: 1.12vw !important;
+    color: #76e2b3 !important;
+}
+
+.options__light {
+    padding: 1.12vw !important;
+    color: #915dd1 !important;
+}
