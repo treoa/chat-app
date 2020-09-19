@@ -6,8 +6,10 @@
 .pnp.js
 
 # my stuff
-/src/backend/node_modules
-/src/backend/configs.js
+/main-page/src/backend/node_modules
+/main-page/src/backend/configs.js
+/chatting/node_modules
+/main-page/node_modules
 
 # testing
 /coverage
