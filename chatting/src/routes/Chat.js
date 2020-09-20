@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import InfoBar from './InfoBar';
+import Messages from './Messages';
+import Input from './Input';
+import './Chat.css'
 
 let socket;
 
 function Chat({location}) {
     const ENDPOINT = 'localhost:5000'
+    var allowedOrigins = "http://localhost:*";
+    var path = '/stomp';
+    // eslint-disable-next-line
     const [name, setName] = useState('user');
+    // eslint-disable-next-line
     const [room, setRoom] = useState('');
     const [message, setMessage]  = useState('');
     const [messages, setMessages] = useState([]);
@@ -52,8 +60,9 @@ function Chat({location}) {
     return (
         <div className="outerContainer">
             <div className="container">
-                <input value={message} onChange={(event) => setMessage(event.target.value)} 
-                    onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null} />
+                <InfoBar room={room} />
+                <Messages messages={messages} name={name} />
+                <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
@@ -7,8 +8,10 @@ const {addUser, removeUser, getUser, getUsersInRoom } = require('./users')
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
 const io = socketio(server);
+
 
 io.on('connect', (socket) => {
     console.log("We have connected!");
@@ -31,7 +34,7 @@ io.on('connect', (socket) => {
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id);
         io.to(user.room).emit('message', {user: user.name, text: message});
-        callback();
+        callback;
     });
 
     socket.on('disconnect', () => {
